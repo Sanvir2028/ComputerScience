@@ -1,0 +1,68 @@
+#Activity 3.2.2 Step 7
+from Post import Post
+
+# Initialize an empty list to store posts
+all_posts_archive = []
+
+# Ask the user to enter a username
+username = input("Enter a username: ")
+print(f"Welcome {username}! \n")
+
+# Print the options for the user
+print("Option Selection:")
+print("new - Add a post to the archive")
+print("remove - Remove a post from the archive")
+print("change_user - Change their username associated with future posts")
+print("print - Display the current, up-to-date list of all posts")
+print("quit - End the program \n")
+
+# Start a while loop that runs until the user types 'quit'
+user_input = input("Choose one option from the selection: ")
+
+while user_input != "quit":
+    if user_input == "new":
+        # Ask the user to enter a new post and add it to the list
+        new_post = input("Enter your new post: ")
+        all_posts_archive.append("'" + new_post + "'")
+        print("Post added!\n")
+    
+    elif user_input == "remove":
+        # Ask the user which post they want to remove
+        if len(all_posts_archive) > 0:
+            print("Current posts in the archive:")
+            for index, post in enumerate(all_posts_archive):
+                print(f"{index}: {post}")
+            
+            post_to_remove = int(input("Enter the number of the post you want to remove: "))
+            
+            if post_to_remove >= 0 and post_to_remove < len(all_posts_archive):
+                del all_posts_archive[post_to_remove]
+                print("Post removed.\n")
+            else:
+                print("Invalid number. Please try again.\n")
+        else:
+            print("No posts to remove.\n")
+    
+    elif user_input == "change_user":
+        # Allow the user to change their username
+        username = input("Enter a new username: ")
+        print(f"Username changed to {username}.\n")
+    
+    elif user_input == "print":
+        # Display all posts in the archive
+        if len(all_posts_archive) > 0:
+            print("All posts in the archive:")
+            for post in all_posts_archive:
+                print(post)
+            print()
+        else:
+            print("No posts to show.\n")
+    
+    else:
+        print("Invalid option. Please try again.\n")
+    
+    # Ask the user to choose an option again
+    user_input = input("Choose one option from the selection: ")
+
+# When the user types 'quit', the program ends
+print("Goodbye!")
