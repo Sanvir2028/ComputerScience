@@ -1,0 +1,142 @@
+#Iteration 1: Ask for a sandwich
+def get_sandwich(order):
+print("Choose your sandwich: ")
+print("1. Chicken - $5.25")
+print("2. Beef - $6.25")
+print("3. Tofu - $5.75")
+sandwich_choice = input("Enter the number of your choice: ")
+
+if sandwich_choice == "1":
+    sandwich = "Chicken"
+    sandwich_cost = 5.25
+elif sandwich_choice == "2":
+    sandwich = "Beef"
+    sandwich_cost = 6.25
+elif sandwich_choice == "3":
+    sandwich = "Tofu"
+    sandwich_cost = 5.75
+else:
+    print("Invalid choice. Defaulting to Chicken.")
+    sandwich = "Chicken"
+    sandwich_cost = 5.25
+
+print(f"You selected a {sandwich} sandwich for ${sandwich_cost:.2f}")
+order.append(f"{sandwich} sandwich - ${sandwich_cost:.2f}")
+return sandwich, sandwich_cost
+#Iteration 2: Add beverage option
+def get_beverage(order):
+beverage = None
+beverage_cost = 0.0
+beverage_size = None
+
+beverage_choice = input("Would you like a beverage (yes/no)? ").lower()
+if beverage_choice == "yes":
+    print("Choose your beverage size:")
+    print("1. Small - $1.00")
+    print("2. Medium - $1.75")
+    print("3. Large - $2.25")
+    
+    beverage_size = input("Enter the number of your choice: ")
+    if beverage_size == "1":
+        beverage = "Small"
+        beverage_cost = 1.00
+    elif beverage_size == "2":
+        beverage = "Medium"
+        beverage_cost = 1.75
+    elif beverage_size == "3":
+        beverage = "Large"
+        beverage_cost = 2.25
+    else:
+        print("Invalid choice. Defaulting to Small.")
+        beverage = "Small"
+        beverage_cost = 1.00
+        
+    print(f"You selected a {beverage} beverage for ${beverage_cost:.2f}")
+    order.append(f"{beverage} beverage - ${beverage_cost:.2f}")
+else:
+    print("You selected no beverage.")
+    beverage = "None"
+    beverage_cost = 0.00
+
+return beverage, beverage_cost
+#Iteration 3: Add french fries option
+def get_fries(order):
+fries = None
+fries_cost = 0.0
+fries_size = None
+
+fries_choice = input("Would you like french fries (yes/no)? ").lower()
+if fries_choice == "yes":
+    print("Choose your fries size:")
+    print("1. Small - $1.00")
+    print("2. Medium - $1.50")
+    print("3. Large - $2.00")
+    
+    fries_size = input("Enter the number of your choice: ")
+    if fries_size == "1":
+        fries = "Small"
+        fries_cost = 1.00
+        mega_size_choice = input("Would you like to mega-size your fries (yes/no)? ").lower()
+        if mega_size_choice == "yes":
+            fries = "Large"
+            fries_cost = 2.00
+            print("Your fries have been mega-sized to Large.")
+    elif fries_size == "2":
+        fries = "Medium"
+        fries_cost = 1.50
+    elif fries_size == "3":
+        fries = "Large"
+        fries_cost = 2.00
+    else:
+        print("Invalid choice. Defaulting to Small.")
+        fries = "Small"
+        fries_cost = 1.00
+    
+    print(f"You selected {fries} fries for ${fries_cost:.2f}")
+    order.append(f"{fries} fries - ${fries_cost:.2f}")
+else:
+    print("You selected no fries.")
+    fries = "None"
+    fries_cost = 0.00
+
+return fries, fries_cost
+#Iteration 4: Add ketchup packets
+def get_ketchup(order):
+ketchup_packets = int(input("How many ketchup packets would you like? (Each packet is $0.25): "))
+ketchup_cost = ketchup_packets * 0.25
+print(f"You selected {ketchup_packets} ketchup packets for ${ketchup_cost:.2f}")
+order.append(f"{ketchup_packets} ketchup packets - ${ketchup_cost:.2f}")
+return ketchup_packets, ketchup_cost
+
+#Main function to combine all steps
+def main():
+order = [] # Create an empty list to store the order
+
+# Step 1: Get sandwich selection
+sandwich, sandwich_cost = get_sandwich(order)
+
+# Step 2: Get beverage selection
+beverage, beverage_cost = get_beverage(order)
+
+# Step 3: Get fries selection
+fries, fries_cost = get_fries(order)
+
+# Step 4: Get ketchup packets selection
+ketchup_packets, ketchup_cost = get_ketchup(order)
+
+# Calculate total cost
+total_cost = sandwich_cost + beverage_cost + fries_cost + ketchup_cost
+
+# Discount for full meal
+if beverage != "None" and fries != "None" and sandwich != "None":
+    total_cost -= 1.00
+    print("You received a $1.00 discount for ordering a full meal.")
+
+# Show user selections
+print("\nYour final order:")
+for item in order:
+    print(f"- {item}")
+
+print(f"Total cost: ${total_cost:.2f}")
+Run the program
+main()
