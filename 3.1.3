@@ -1,0 +1,97 @@
+print("inputs must be exactly like the question answers")
+print("inputs must be capitalized")
+Chicken=float(5.25)
+Beef=float(6.25)
+Tofu=float(5.75)
+Drink_small=float(1.00)
+Drink_medium=float(1.75)
+Drink_large=float(2.00)
+fries_small=float(1.00)
+fries_medium=float(1.50)
+fries_large=float(2.00)
+packets=float(0.25)
+#above are cost
+sandwich=str(input("Chicken, Beef, or Tofu?"))
+print(sandwich+" Sandwich has been chosen")
+#sandwich chosing
+drink=str(input("Would you like a drink:Yes or No?"))
+if drink==("Yes"):
+print("drink had been chosen")
+drink_size=str(input("What size:Small, Medium,or Large:"))
+print(drink_size+" drink size has been chosen")
+else:
+print("No drink")
+#drink chosing
+if sandwich==("Chicken"):
+sandwich_cost=Chicken
+if sandwich==("Beef"):
+sandwich_cost=Beef
+if sandwich==("Tofu"):
+sandwich_cost=Tofu
+#choses the sandwich cost
+if drink==("Yes"):
+if drink_size==("Small"):
+drink_cost=Drink_small
+if drink_size==("Medium"):
+drink_cost=Drink_medium
+if drink_size==("Large"):
+drink_cost=Drink_large
+#choses the drinks cost
+first_cost=sandwich_cost+drink_cost
+#Does the math for the first cost
+fries=str(input("Would you like fries:Yes or No?"))
+if fries==("Yes"):
+print("fries had been chosen")
+fries_size=str(input("What size:Small, Medium, or Large"))
+if fries_size==("Small"):
+megasized=str(input("Would you like to megasize:Yes or No?"))
+if megasized==("Yes"):
+fries_size==("Large")
+print(fries_size+"fries size has been chosen")
+else:
+print(fries_size+"fries size has been chosen")
+#Fries and what size
+if fries_size==("Small"):
+fries_cost=fries_small
+if fries_size==("Medium"):
+fries_cost=fries_medium
+if fries_size==("Large"):
+fries_cost=fries_large
+#Fries costing
+if fries==("No"):
+print("No Fries")
+#if there is no fries
+packet_amount=int(input("How many Ketchup Packets do you want (cannot be 0):"))
+ketchup_cost=int(packet_amount*packets)
+#Ketchup costing
+if drink==("Yes"):
+if fries==("Yes"):
+print("Your total cost is:$"+str(first_cost+fries_cost+ketchup_cost-1))
+else:
+print("Your total cost is:$"+str(first_cost+ketchup_cost))
+else:
+if fries==("Yes"):
+print("Your total cost is:$"+str(sandwich_cost+fries_cost+ketchup_cost))
+else:
+print("Your total cost is:$"+sandwich_cost+ketchup_cost)
+#prints the total cost
+print(sandwich+" sandwich")
+#prints the sandwich
+if drink==("Yes"):
+print(drink_size+" Drink")
+else:
+print("No Drink")
+#prints the drink and drink size
+if fries==("Yes"):
+if fries_size==("Small"):
+if megasized==("Yes"):
+print("Megasized Large Fries")
+else:
+print("Small Fries")
+else:
+print(fries_size+"Fries")
+else:
+print("No Fries")
+#prints the fries and fries size
+print("Ketchup Packets:"+str(packet_amount))
+#prints the amount of Ketchup Packets``
