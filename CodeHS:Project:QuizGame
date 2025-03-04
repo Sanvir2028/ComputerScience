@@ -1,0 +1,41 @@
+# Initialize score
+score = 0
+
+# Question 1
+print("1. What is the capital of France?")
+print("(a) Paris")
+print("(b) London")
+print("(c) Rome")
+answer = input("> ")  # Get user input
+if answer == "a":
+    print("Correct!\n")
+    score += 1  # Increment score for correct answer
+else:
+    print("Incorrect.\n")
+
+# Question 2
+print("2. Which planet is known as the Red Planet?")
+print("(a) Mars")
+print("(b) Venus")
+print("(c) Jupiter")
+answer = input("> ")  # Get user input
+if answer == "a":
+    print("Correct!\n")
+    score += 1  # Increment score for correct answer
+else:
+    print("Incorrect.\n")
+
+# Question 3
+print("3. Who painted the Mona Lisa?")
+print("(a) Leonardo da Vinci")
+print("(b) Pablo Picasso")
+print("(c) Vincent van Gogh")
+answer = input("> ")  # Get user input
+if answer == "a":
+    print("Correct!\n")
+    score += 1  # Increment score for correct answer
+else:
+    print("Incorrect.\n")
+
+# Final score
+print(f"Quiz complete!\nYou answered {score} out of 3 questions correctly.")
