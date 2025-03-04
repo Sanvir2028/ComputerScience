@@ -1,0 +1,16 @@
+#Welcome to the game msg
+print("Welcome to Mad Libs!")
+#-------------------------------------------------------------------------------------------
+#Inputs from the user
+adj = input("Enter an adjective: ")
+n = input("Enter a noun: ")
+v = input("Enter a verb: ")
+#-------------------------------------------------------------------------------------------
+#Seperating from the rest and then showing the introductory sentence 
+#into the story they've created
+print(" ")
+print("Here's your Mad Libs story")
+#-------------------------------------------------------------------------------------------
+#Printing the user's created story:
+print(" ")
+print("Once upon a time, there was a " + adj + " " + n + " who liked to " + v + " for fun!")
